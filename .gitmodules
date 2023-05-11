@@ -1,0 +1,6 @@
+[submodule "full-lobby-backend"]
+	path = full-lobby-backend
+	url = https://github.com/perpyderp/full-lobby-backend.git
+[submodule "full-lobby-frontend"]
+	path = full-lobby-frontend
+	url = https://github.com/perpyderp/full-lobby-frontend.git
