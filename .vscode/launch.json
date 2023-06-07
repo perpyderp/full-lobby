@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-FullLobbyApplication<full-lobby>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.perp.fulllobby.FullLobbyApplication",
+            "projectName": "full-lobby",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
