@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { SessionProvider } from "next-auth/react";
+import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import Navbar from "@/components/nav/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +19,17 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>{children}</body>
+			<body className={cn("grid", inter.className)}>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<Navbar />
+					{children}
+				</ThemeProvider>
+			</body>
 		</html>
 	);
 }
