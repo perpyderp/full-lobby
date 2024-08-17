@@ -60,3 +60,29 @@ export const verificationTokens = pgTable(
 		compoundKey: primaryKey({ columns: [vt.identifier, vt.token] }),
 	})
 );
+
+export const posts = pgTable("post", {
+	id: text("id")
+		.primaryKey()
+		.notNull()
+		.$defaultFn(() => crypto.randomUUID()),
+	userId: text("userId")
+		.notNull()
+		.references(() => users.id, { onDelete: "cascade" }),
+	title: text("title").notNull(),
+	body: text("body").notNull(),
+});
+
+export const comments = pgTable("comments", {
+	id: text("id")
+		.primaryKey()
+		.notNull()
+		.$defaultFn(() => crypto.randomUUID()),
+	content: text("content").notNull(),
+	userId: text("userId")
+		.notNull()
+		.references(() => users.id, { onDelete: "cascade" }),
+	postId: text("postId")
+		.notNull()
+		.references(() => posts.id, { onDelete: "cascade" }),
+});
