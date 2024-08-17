@@ -3,9 +3,9 @@ import { signIn, auth, providerMap } from "@/auth";
 import { AuthError } from "next-auth";
 import { cookies } from "next/headers";
 
-const csrfToken = cookies().get("authjs.csrf-token")?.value ?? "";
-
 export default function Login() {
+	const csrfToken = cookies().get("authjs.csrf-token")?.value ?? "";
+
 	return (
 		<div className="flex flex-col gap-2">
 			{Object.values(providerMap).map((provider) => (

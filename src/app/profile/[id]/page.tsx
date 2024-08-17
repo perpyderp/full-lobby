@@ -7,7 +7,7 @@ type ProfilePageProps = {
 	};
 };
 
-export default async function ({ params: { id } }: ProfilePageProps) {
+export default async function Profile({ params: { id } }: ProfilePageProps) {
 	const user = await db.query.users.findFirst({
 		where: (users, { eq }) => eq(users.id, id),
 	});
